@@ -87,7 +87,7 @@ cd BNN-console-games
 Build the project:
 
 ```bash
-make
+mingw32-make
 ```
 
 The Makefile compiles:
@@ -111,7 +111,7 @@ The generated DLL files are placed in the `games/` and `libs/` directories.
 ### Build
 
 ```bash
-make
+ming32-make
 ```
 
 Build the complete project.
@@ -119,7 +119,7 @@ Build the complete project.
 ### Clean
 
 ```bash
-make clean
+mingw32-make clean
 ```
 
 Remove compiled binaries.
@@ -127,7 +127,7 @@ Remove compiled binaries.
 ### Rebuild
 
 ```bash
-make rebuild
+mingw32-make rebuild
 ```
 
 Clean and rebuild the project.
@@ -135,7 +135,7 @@ Clean and rebuild the project.
 ### Help
 
 ```bash
-make help
+mingw32-make help
 ```
 
 Display available Makefile commands.
