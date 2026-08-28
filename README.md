@@ -71,9 +71,9 @@ The `libs/` directory contains shared components used by the game platform:
 ## Requirements
 
 - Windows
-- MinGW-w64 / g++
-- C++17 support
-- GNU Make
+- MinGW-w64
+- g++ with C++17 support
+- mingw32-make
 
 ## Build
 
