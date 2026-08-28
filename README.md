@@ -1,2 +1,2 @@
 # BNN-console-games
-This program lets you play a bunch of games in the console
+This programme allows you to play lots of games in a console.
