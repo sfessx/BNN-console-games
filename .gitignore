@@ -85,3 +85,7 @@ vcpkg_installed/
 # ----------------------------------------------------------------------------
 Testing/
 .cache/
+
+# Runtime user data
+stats.txt
+users.txt
