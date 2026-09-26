@@ -9,7 +9,6 @@ A modular C++ console game platform containing multiple playable games with shar
 - Statistics system
 - Leaderboard support
 - Security module
-- Automated compilation with Makefile
 - C++17
 
 ## Games
@@ -54,47 +53,13 @@ BNN-console-games/
 │   └── stats.cpp
 │
 ├── main.cpp
-├── Makefile
 ├── README.md
 ├── LICENSE
-└── .gitignore
 ```
-
-## Libraries
-
-The `libs/` directory contains shared components used by the game platform:
-
-- `lib_leaderboard.cpp` — Leaderboard functionality
-- `security.cpp` — Security-related functionality
-- `stats.cpp` — Statistics functionality
-
 ## Requirements
 
 - Windows
-- MinGW-w64
-- g++ with C++17 support
-- mingw32-make
-
-## Build
-
-Clone the repository:
-
-```bash
-git clone https://github.com/sfessx/BNN-console-games.git
-cd BNN-console-games
-```
-
-Build the project:
-
-```bash
-mingw32-make
-```
-
-The Makefile compiles:
-
-- `main.cpp` into the main executable
-- Game source files into game DLLs
-- Library source files into library DLLs
+- MSVC
 
 ## Run
 
@@ -106,48 +71,14 @@ main.exe
 
 The generated DLL files are placed in the `games/` and `libs/` directories.
 
-## Makefile Commands
-
-### Build
-
-```bash
-ming32-make
-```
-
-Build the complete project.
-
-### Clean
-
-```bash
-mingw32-make clean
-```
-
-Remove compiled binaries.
-
-### Rebuild
-
-```bash
-mingw32-make rebuild
-```
-
-Clean and rebuild the project.
-
-### Help
-
-```bash
-mingw32-make help
-```
-
-Display available Makefile commands.
-
-## Repository Notes
-
-Compiled files such as `.exe` and `.dll` are excluded from the source repository using `.gitignore`.
-
-Runtime data files such as `users.txt` and `stats.txt` are also excluded from version control.
-
 ## License
 
 This project is licensed under the WTFPL license.
 
 See [LICENSE](LICENSE) for details.
+
+##Author
+
+README was written by sfessx on 26th Sep. 2026.
+Release was encoded by Madlc-314.
+
