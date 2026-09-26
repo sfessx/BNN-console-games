@@ -4,6 +4,7 @@
 #include <vector>
 #include <sstream>
 #include <windows.h> 
+#include <time.h>
 #include <mutex> 
 #include <map>
 #include <algorithm>
@@ -53,8 +54,8 @@ extern "C" {
         std::lock_guard<std::mutex> lock(file_mutex); auto list = loadAllStats(); bool found = false;
         for (auto& u : list) { if (u.username == target) { u.logins++; found = true; break; } }
         if (!found) {
-            std::time_t now = std::time(0); char time_str[64] = {0}; 
-            std::strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
+            time_t now = time(0); char time_str[64] = {0}; 
+            strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S", localtime(&now));
             list.push_back({target, 1, 0, std::string(time_str), {}}); 
         }
         saveAllStats(list);
@@ -99,7 +100,7 @@ extern "C" {
                     std::cout << "Registered : " << u.reg_time << "\n\n";
 
                     int start = profilePage * RECORDS_PER_PAGE;
-                    int end = std::min(start + RECORDS_PER_PAGE, totalRecords);
+                    int end = min(start + RECORDS_PER_PAGE, totalRecords);
 
                     if (totalRecords == 0) {
                         std::cout << " No game history recorded yet.\n\n";

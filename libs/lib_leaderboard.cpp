@@ -61,7 +61,7 @@ extern "C" {
             std::cout << "=========================================\n\n";
 
             int start = leaderboardPage * BOARDS_PER_PAGE;
-            int end = std::min(start + BOARDS_PER_PAGE, totalGames);
+            int end = min(start + BOARDS_PER_PAGE, totalGames);
 
             for (int k = start; k < end; k++) {
                 std::string gameName = gNames[k];

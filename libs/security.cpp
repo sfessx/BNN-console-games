@@ -35,16 +35,20 @@ extern "C" {
         std::sprintf(result, "HS_%08X", hash);
     }
 
-    __declspec(dllexport) void registerUser(const char* username) {
+    __declspec(dllexport) bool registerUser(const char* username) {
         std::cout << "Set your password: "; std::string new_pwd = getHiddenPasswordInternal();
-        if (new_pwd.empty()) { std::system("cls"); std::cout << "Password cannot be empty.\n"; return; }
+        // std::cout << new_pwd << "\n";
+        if (new_pwd.empty()) { std::system("cls"); std::cout << "Password cannot be empty.\n"; return false; }
         std::cout << "Confirm your password: "; std::string confirm_pwd = getHiddenPasswordInternal();
-        if (new_pwd != confirm_pwd) { std::system("cls"); std::cout << "Error: Passwords do not match!\n"; return; }
+        // std::cout << confirm_pwd << "\n";
+        if (new_pwd != confirm_pwd) { std::system("cls"); std::cout << "Error: Passwords do not match!\n"; return false; }
         
         char hashed[100] = {0}; getHash(new_pwd.c_str(), hashed);
         std::ofstream outfile("users.txt", std::ios::app);
         outfile << username << "\t" << hashed << "\n"; outfile.close();
         std::system("cls"); std::cout << "Registration successful!\n";
+
+        return true;
     }
 
     __declspec(dllexport) void changePassword() {

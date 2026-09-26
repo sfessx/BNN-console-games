@@ -20,7 +20,7 @@ typedef const char* (*GetGameNameFunc)();
 typedef void (*PlayGameFunc)(const char*);
 typedef const char* (*GetLibMenuNameFunc)();
 typedef void (*ExecFunc)(const char*);
-typedef void (*RegisterFunc)(const char*);
+typedef bool (*RegisterFunc)(const char*);
 typedef void (*ProfileFunc)(const char*, int);
 
 IsValidUserFunc isValidUser; GetHashFunc myGetHash; RecordLoginFunc recordLogin; GetStatsFunc getStats;
@@ -94,7 +94,21 @@ int main() {
         if (ans == "N" || ans == "n") { system("cls"); continue; }
         
         RegisterFunc registerUser = (RegisterFunc)GetProcAddress(hDll, "registerUser");
-        if (registerUser) { registerUser(s.c_str()); break; }
+        if (registerUser)
+        {
+            if(registerUser(s.c_str()))
+            {
+                cout << "Welcome!\n";
+                Sleep(2000);
+                break; 
+            }
+            else
+            {
+                Sleep(2000);
+                system("cls");
+                continue;
+            }
+        }
     }
     
     recordLogin(s.c_str()); sessionStartTime = std::time(0);
